@@ -1,3 +1,4 @@
+/* РћСЃРЅРѕРІРЅС‹Рµ СЃС‚РёР»Рё РґР»СЏ СЃС‚СЂР°РЅРёС†С‹ */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -10,13 +11,15 @@ body {
     padding: 20px;
     color: white;
     margin-bottom: 10px;
-    align-items: center
+    display: flex;
+    align-items: center;
 }
 
 #header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 #logo img {
@@ -56,17 +59,16 @@ body {
     margin: 40px auto;
     padding: 20px;
     gap: 20px;
-    max-width: 1500px; /* Увеличиваем максимальную ширину для лучшего отображения нескольких товаров */
+    max-width: 1500px;
 }
 
 #content-column {
-    width: 100%;
-    flex: 1;
+    flex: 1 1 100%; /* РР·РјРµРЅРµРЅРѕ РґР»СЏ Р°РґР°РїС‚РёРІРЅРѕСЃС‚Рё */
     margin-bottom: 20px;
 }
 
 #side-column {
-    flex: 0 0 100%;
+    flex: 0 0 100%; /* РќР°С‡Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ РјРѕР±РёР»СЊРЅС‹С… */
     background-color: #e0e0e0;
     padding: 20px;
     margin-bottom: 20px;
@@ -87,10 +89,10 @@ section {
     }
 
 #products {
-    display: flex; /* Располагает элементы в строку */
-    justify-content: flex-start; /* Выравнивает товары по левому краю */
-    gap: 40px; /* Отступы между товарами */
-    flex-wrap: wrap; /* Позволяет переносить элементы на следующую строку, если не помещаются */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
 }
 
 .product {
@@ -98,27 +100,38 @@ section {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 10px;
-    text-align: left;
-    flex: 1 1 45%;
-    min-width: 300px; /* Изменено для гибкой ширины, чтобы два товара помещались в строке */
-    max-width: 300px; /* Максимальная ширина товара */
-    margin-bottom: 10px; /* Отступ снизу между товарами */
-    min-height: 420px;
-    max-height: 420px; /* Установите минимальную высоту для одинакового размера */
-    display: flex; /* Добавьте флекс для упрощения позиционирования */
-    flex-direction: column; /* Задайте направление вертикально */
-    justify-content: space-between;
-    font-weight: normal;
-    /* Убедитесь, что элементы равномерно распределены по высоте */
+    margin: 10px;
+    flex: 1 1 23%; /* Р—Р°РґР°РµС‚ С€РёСЂРёРЅСѓ РґР»СЏ РџРљ */
+    max-width: 200px; /* РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ С€РёСЂРёРЅР° РґР»СЏ РєР°Р¶РґРѕРіРѕ С‚РѕРІР°СЂР° */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-    .product h2 {
-        margin-bottom: 2px; /* Устанавливаем нижний отступ для названия товара */
-    }
-    .product p {
-        margin-top: 0; /* Убираем верхний отступ для ценника */
+    .product img {
+        max-width: 100%;
+        height: auto;
     }
 
+@media (max-width: 768px) {
+    .product {
+        flex: 1 1 48%; /* Р—Р°РґР°РµС‚ С€РёСЂРёРЅСѓ РґР»СЏ РјРѕР±РёР»СЊРЅС‹С… СѓСЃС‚СЂРѕР№СЃС‚РІ */
+        max-width: none; /* РЈР±РёСЂР°РµРј РѕРіСЂР°РЅРёС‡РµРЅРёРµ РїРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕР№ С€РёСЂРёРЅРµ */
+    }
+}
+
+@media (max-width: 480px) {
+    .product {
+        flex: 1 1 100%; /* РџРѕР»РЅР°СЏ С€РёСЂРёРЅР° РґР»СЏ РѕС‡РµРЅСЊ РјР°Р»РµРЅСЊРєРёС… СЌРєСЂР°РЅРѕРІ */
+    }
+}
+
+
+    .product h2 {
+        margin-bottom: 2px;
+    }
+
+    .product p {
+        margin-top: 0;
+    }
 
 .review {
     border: 1px solid #ccc;
@@ -153,7 +166,9 @@ form {
         margin-bottom: 5px;
     }
 
-    form input, form select, form button {
+    form input,
+    form select,
+    form button {
         margin-bottom: 10px;
         padding: 10px;
         border: 1px solid #ccc;
@@ -179,24 +194,35 @@ form {
     margin-top: 20px;
 }
 
+/* РњРµРґРёР°-Р·Р°РїСЂРѕСЃС‹ РґР»СЏ Р±РѕР»СЊС€РёС… СЌРєСЂР°РЅРѕРІ */
 @media (min-width: 960px) {
     #main-block {
-        flex-direction: row; /* Изменяем на row для больших экранов */
-        justify-content: center; /* Центрируем содержимое */
+        flex-direction: row; /* РР·РјРµРЅСЏРµРј РЅР° row РґР»СЏ Р±РѕР»СЊС€РёС… СЌРєСЂР°РЅРѕРІ */
+        justify-content: center; /* Р¦РµРЅС‚СЂРёСЂСѓРµРј СЃРѕРґРµСЂР¶РёРјРѕРµ */
     }
 
     #content-column {
         flex: 0 0 65%;
-        margin-right: 20px;
+        margin-right: 20px; /* РћС‚СЃС‚СѓРї СЃРїСЂР°РІР° РґР»СЏ РєРѕРЅС‚РµРЅС‚РЅРѕР№ РєРѕР»РѕРЅРєРё */
     }
 
     #side-column {
-        flex: 0 0 30%;
+        flex: 0 0 30%; /* РР·РјРµРЅСЏРµРј С€РёСЂРёРЅСѓ СЃР°Р№Рґ-РєРѕР»РѕРЅРєРё */
+        display: block; /* РЈР±РµРґРёС‚РµСЃСЊ, С‡С‚Рѕ СЃР°Р№Рґ-РєРѕР»РѕРЅРєР° РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ */
     }
 }
 
+/* РњРµРґРёР°-Р·Р°РїСЂРѕСЃС‹ РґР»СЏ РјРѕР±РёР»СЊРЅС‹С… СѓСЃС‚СЂРѕР№СЃС‚РІ */
 @media (max-width: 768px) {
     #side-column {
-        display: none;
+        display: none; /* РЎРєСЂС‹РІР°РµРј СЃР°Р№Рґ-РєРѕР»РѕРЅРєСѓ РЅР° РјРѕР±РёР»СЊРЅС‹С… */
+    }
+
+    #main-block {
+        flex-direction: column; /* РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РєРѕР»РѕРЅРєРё РІРµСЂС‚РёРєР°Р»СЊРЅРѕ РґР»СЏ РјРѕР±РёР»СЊРЅС‹С… */
+    }
+
+    #content-column {
+        flex: 1 1 100%; /* Р—Р°РґР°РµРј 100% С€РёСЂРёРЅС‹ РґР»СЏ РєРѕРЅС‚РµРЅС‚РЅРѕР№ РєРѕР»РѕРЅРєРё */
     }
 }
