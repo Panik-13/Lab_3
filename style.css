@@ -1,0 +1,202 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #d5d5d5;
+    color: #333;
+}
+
+#header-container {
+    background-color: #000;
+    padding: 20px;
+    color: white;
+    margin-bottom: 10px;
+    align-items: center
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo img {
+    max-width: 120px;
+}
+
+#header nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+    #header nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+        #header nav ul li {
+            margin-left: 20px;
+        }
+
+            #header nav ul li a {
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                #header nav ul li a:hover {
+                    text-decoration: underline;
+                }
+
+#main-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px auto;
+    padding: 20px;
+    gap: 20px;
+    max-width: 1500px; /* Увеличиваем максимальную ширину для лучшего отображения нескольких товаров */
+}
+
+#content-column {
+    width: 100%;
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+#side-column {
+    flex: 0 0 100%;
+    background-color: #e0e0e0;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    text-align: left;
+}
+
+section {
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+    section img, section video {
+        max-width: 100%;
+        height: auto;
+    }
+
+#products {
+    display: flex; /* Располагает элементы в строку */
+    justify-content: flex-start; /* Выравнивает товары по левому краю */
+    gap: 40px; /* Отступы между товарами */
+    flex-wrap: wrap; /* Позволяет переносить элементы на следующую строку, если не помещаются */
+}
+
+.product {
+    background-color: #ececec;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: left;
+    flex: 1 1 45%;
+    min-width: 300px; /* Изменено для гибкой ширины, чтобы два товара помещались в строке */
+    max-width: 300px; /* Максимальная ширина товара */
+    margin-bottom: 10px; /* Отступ снизу между товарами */
+    min-height: 420px;
+    max-height: 420px; /* Установите минимальную высоту для одинакового размера */
+    display: flex; /* Добавьте флекс для упрощения позиционирования */
+    flex-direction: column; /* Задайте направление вертикально */
+    justify-content: space-between;
+    font-weight: normal;
+    /* Убедитесь, что элементы равномерно распределены по высоте */
+}
+
+    .product h2 {
+        margin-bottom: 2px; /* Устанавливаем нижний отступ для названия товара */
+    }
+    .product p {
+        margin-top: 0; /* Убираем верхний отступ для ценника */
+    }
+
+
+.review {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px auto;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    flex: 0 0 90%;
+    max-width: 1000px;
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    border-radius: 8px;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+    form label {
+        margin-bottom: 5px;
+    }
+
+    form input, form select, form button {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    form button {
+        background-color: #000;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+        form button:hover {
+            background-color: #555;
+        }
+
+#footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+@media (min-width: 960px) {
+    #main-block {
+        flex-direction: row; /* Изменяем на row для больших экранов */
+        justify-content: center; /* Центрируем содержимое */
+    }
+
+    #content-column {
+        flex: 0 0 65%;
+        margin-right: 20px;
+    }
+
+    #side-column {
+        flex: 0 0 30%;
+    }
+}
+
+@media (max-width: 768px) {
+    #side-column {
+        display: none;
+    }
+}
